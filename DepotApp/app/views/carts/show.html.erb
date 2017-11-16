@@ -1,4 +1,23 @@
 <p id="notice"><%= notice %></p>
 
+
+<h2>Your Pragmatic Cart</h2>
+
+  <% @cart.line_items.each do |item| %>    
+    <div class ="entry">
+            <%= image_tag(item.product.image_url) %>
+            <h3> <%= item.product.title %></h3>
+            
+            <!--
+                sanitize giúp loại bỏ các element và attribute nguy hiểm
+                từ nội dung html            
+            
+            <%= sanitize(item.product.description) %>
+            -->
+  <% end %>
+
+
+<!--
 <%= link_to 'Edit', edit_cart_path(@cart) %> |
 <%= link_to 'Back', carts_path %>
+-->

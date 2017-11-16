@@ -1,4 +1,17 @@
 class Product < ApplicationRecord
+    has_many :line_items
+
+    before_destroy :ensure_not_referenced_by_any_line_item
+
+    private
+
+    def ensure_not_referenced_by_any_line_item
+        errors.add(:base, 'Line Items present')
+        throw :abort
+    end
+
+
+
     ## presence: kiểm tra xem thông tin có nào bỏ trống không?
     validates :title, :description, :image_url, presence:{
         message: 'Title, Description, and image URL fields arent empty'
