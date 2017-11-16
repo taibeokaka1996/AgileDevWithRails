@@ -1,15 +1,51 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Depot</title>
-    <%= csrf_meta_tags %>
+
+<head>
+  <title>Depot</title>
+  <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all',
      'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
+      <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+</head>
+<!-- stylesheet_link_tag() tạo thẻ link cho application's 
+  stylesheet để kích hoạt Turbolinks 
+  ==> nó dùng để tăng tốc độ thay đổi trang ứng dụng
 
-  <body class='<%= controller.controller_name %>'>
-    <%= yield %>
-  </body>
+  Phương thức javascript_include_tag () tạo ra một <script>
+  để nạp tập lệnh của ứng dụng của chúng ta. Cuối cùng, phương pháp csrf_meta_tags () thiết lập tất cả các dữ liệu đằng sau hậu trường cần thiết để ngăn chặn các cuộc tấn công giả mạo yêu cầu cross-site,
+-->
+
+<body class='<%= controller.controller_name %>'>
+  <div id="banner">
+    <%= image_tag 'logo.svg', alt: 'The Pragmatic Bookshelf' %>
+      <span class="title">
+        <%= @page_title %>
+      </span>
+  </div>
+  <div id="columns">
+    <div id="side">
+      <ul>
+        <li>
+          <a href="http://www....">Home</a>
+        </li>       
+        <li>
+          <a href="http://www..../faq">Questions</a>
+        </li>     
+        <li>
+          <a href="http://www..../news">New</a>
+        </li>
+        <li>
+          <a href="http://www..../contact">Contact</a>
+        </li>
+      </ul>
+    </div>
+
+    <div id="main">
+      <%= yield %>
+    </div>
+</div>
+</body>
+
 </html>
