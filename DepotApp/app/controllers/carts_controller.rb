@@ -60,14 +60,13 @@ class CartsController < ApplicationController
     session[:cart_id] = nil 
 
     respond_to do |format|
-      format.html { redirect_to store_index_url, 
-        notice: 'Your cart is currently empty.' }
+      format.html { redirect_to store_index_url }
       format.json { head :no_content }
     end
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
+    # Use callbacks to share `common setup or constraints between actions.
     def set_cart
       @cart = Cart.find(params[:id])
     end
