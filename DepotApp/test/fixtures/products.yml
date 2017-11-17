@@ -3,13 +3,13 @@
 one:
   title: MyString
   description: MyText
-  image_url: "text.jpg"
+  image_url: text.jpg
   price: 9.99
 
 two:
   title: MyString
   description: MyText
-  image_url: "MyString.jpg"
+  image_url: MyString.jpg
   price: 9.99
 
 ruby:

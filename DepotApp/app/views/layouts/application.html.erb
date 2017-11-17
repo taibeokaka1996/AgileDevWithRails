@@ -1,13 +1,11 @@
 <!DOCTYPE html>
 <html>
-
 <head>
-  <title>Depot</title>
+  <title>Pragprog Books Online Store</title>
+  <%= stylesheet_link_tag    "application", media: 'all',
+    "data-turbolinks-track" => 'reload' %>
+  <%= javascript_include_tag "application", "data-turbolinks-track"=> 'reload' %>
   <%= csrf_meta_tags %>
-
-    <%= stylesheet_link_tag    'application', media: 'all',
-     'data-turbolinks-track': 'reload' %>
-      <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
 </head>
 <!-- stylesheet_link_tag() tạo thẻ link cho application's 
   stylesheet để kích hoạt Turbolinks 
@@ -21,20 +19,28 @@
   <div id="banner">
     <%= image_tag 'logo.svg', alt: 'The Pragmatic Bookshelf' %>
       <span class="title">
-        <%= @page_title %>
+         <%= @page_title %>
       </span>
   </div>
+
+
   <div id="columns">
     <div id="side">
+      <div id="cart">
+        <% if @cart %>
+          <%= render @cart %>
+        <% end %>
+      </div>
+
       <ul>
         <li>
-          <a href="http://www....">Home</a>
+           <a href="http://www....">Home</a>
         </li>       
         <li>
-          <a href="http://www..../faq">Questions</a>
+           <a href="http://www..../faq">Questions</a>
         </li>     
         <li>
-          <a href="http://www..../news">New</a>
+          <a href="http://www..../news">News</a>
         </li>
         <li>
           <a href="http://www..../contact">Contact</a>
@@ -45,7 +51,6 @@
     <div id="main">
       <%= yield %>
     </div>
-</div>
+  </div>
 </body>
-
 </html>

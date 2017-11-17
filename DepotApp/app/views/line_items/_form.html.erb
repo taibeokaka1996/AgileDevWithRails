@@ -21,6 +21,7 @@
     <%= form.text_field :cart_id, id: :line_item_cart_id %>
   </div>
 
+  <%= pluralize session[:counter], 'time' %>
   <div class="actions">
     <%= form.submit %>
   </div>
