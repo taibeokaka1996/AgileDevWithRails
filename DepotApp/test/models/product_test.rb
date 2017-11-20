@@ -23,12 +23,12 @@ class ProductTest < ActiveSupport::TestCase
     product.price = -1
     assert product.invalid?
     assert_equal ["must be greater than or equal to 0.01"],
-    product.errors[:price]
+      product.errors[:price]
 
     product.price = 0    
     assert product.invalid?
     assert_equal ["must be greater than or equal to 0.01"],
-    product.errors[:price]
+      product.errors[:price]
 
     product.price = 1
     assert product.valid?
@@ -61,8 +61,7 @@ class ProductTest < ActiveSupport::TestCase
     product = Product.new(title: products(:ruby).title,
                           description: "yyy",
                           price: 1,
-                          image_url: "fred.gif"
-                          )
+                          image_url: "fred.gif")
     assert product.invalid?
     assert_equal ["has already been taken"], product.errors[:title]
   end
@@ -75,6 +74,6 @@ class ProductTest < ActiveSupport::TestCase
                           image_url: "fred.gif")
     assert product.invalid?
     assert_equal [I18n.translate('errors.messages.taken')],
-    product.errors[:title]
+                  product.errors[:title]
   end
 end
