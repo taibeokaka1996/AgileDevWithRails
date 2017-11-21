@@ -1,11 +1,12 @@
 <!DOCTYPE html>
 <html>
+
 <head>
   <title>Pragprog Books Online Store</title>
   <%= stylesheet_link_tag    "application", media: 'all',
     "data-turbolinks-track" => 'reload' %>
-  <%= javascript_include_tag "application", "data-turbolinks-track"=> 'reload' %>
-  <%= csrf_meta_tags %>
+    <%= javascript_include_tag "application", "data-turbolinks-track"=> 'reload' %>
+      <%= csrf_meta_tags %>
 </head>
 <!-- stylesheet_link_tag() tạo thẻ link cho application's 
   stylesheet để kích hoạt Turbolinks 
@@ -19,7 +20,8 @@
   <div id="banner">
     <%= image_tag 'logo.svg', alt: 'The Pragmatic Bookshelf' %>
       <span class="title">
-         <strong style="font-size: 64px;">P</strong>RAGMATIC <strong style="font-size: 64px;">B</strong>OOKSHELF
+        <strong style="font-size: 64px;">P</strong>RAGMATIC
+        <strong style="font-size: 64px;">B</strong>OOKSHELF
       </span>
   </div>
 
@@ -30,17 +32,17 @@
         <% if @cart %>
           <%= hidden_div_if(@cart.line_items.empty?, id: 'cart') do %>
             <%= render @cart %>
-          <% end %>
-        <% end %>
+              <% end %>
+                <% end %>
       </div>
 
       <ul>
         <li>
-           <a href="http://localhost:3000/">Home</a>
-        </li>       
+          <a href="http://localhost:3000/">Home</a>
+        </li>
         <li>
-           <a href="http://www..../faq">Questions</a>
-        </li>     
+          <a href="http://www..../faq">Questions</a>
+        </li>
         <li>
           <a href="http://www..../news">News</a>
         </li>
@@ -48,11 +50,25 @@
           <a href="http://www..../contact">Contact</a>
         </li>
       </ul>
+      <% if session[:user_id] %>
+        <ul>
+          <li>
+            <%= link_to  "Orders", orders_path %>
+          </li>
+          <li>
+            <%= link_to  "Products", products_path %>
+          </li>
+          <li>
+            <%= link_to  "Users", users_path %>
+          </li>
+        </ul>
+        <%= button_to  "Logout", logout_path, method: :delete %>
+        <% end %>
     </div>
-
     <div id="main">
       <%= yield %>
     </div>
   </div>
 </body>
+
 </html>
