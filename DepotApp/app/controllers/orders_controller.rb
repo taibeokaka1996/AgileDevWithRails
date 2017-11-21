@@ -38,7 +38,7 @@ class OrdersController < ApplicationController
 
         
         format.html { redirect_to store_index_url, 
-          notice: 'Thank you for your order'}
+          notice: I18n.t('.thanks')}
         format.json { render :show, status: :created, 
           location: @order }
       else 
