@@ -7,7 +7,7 @@
 # Visit http://www.pragmaticprogrammer.com/titles/rails5 for more book information.
 #---
 # encoding: utf-8
-Product.delete_all
+Product.destroy_all
 
 Product.create!(title: 'Rails, Angular, Postgres, and Bootstrap',
   description:
