@@ -15,9 +15,7 @@
               <%= product.title %>
             </dt>
             <dd>
-              <%= truncate(strip_tags(product.description),
-                  length: 80) 
-              %>
+              <%= truncate_abc(product.description,100)%>
             </dd>
           </dl>
         </td>
